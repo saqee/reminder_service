@@ -1,6 +1,7 @@
 const express = require("express")
 const { PORT, DB_SYNC } = require("./config/serverConfig")
 const app = express()
+const { sendBasicEmail } = require("./services/email-service")
 //const db = require("./models/index") // Assuming you have a database config file
 function startServer() {
   app.use(express.json())
@@ -8,9 +9,15 @@ function startServer() {
   //app.use("/api", require("./routes/index")) // Use the routes defined in index.js
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
-    if (DB_SYNC) {
+    /* if (DB_SYNC) {
       // db.sequelize.sync({ alter: true })
-    }
+    } */
+    /* sendBasicEmail(
+      "thesis09126@gmail.com",
+      "saqeeb108@gmail.com",
+      "this is testing email",
+      "hey im ztm"
+    ) */
   })
 }
 
